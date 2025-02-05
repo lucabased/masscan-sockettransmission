@@ -755,7 +755,6 @@ output_report_status(struct Output *out, time_t timestamp, int status,
         switch (ip_proto) {
         case 0: /* ARP */
             count = fprintf(stdout, "{\"type\":\"masscan_probe\", \"ip\":\"%s\", \"port\":\"%u\", \"protocol\":\"%s\"}",
-                        status_string(status),
                         port,
                         name_from_ip_proto(ip_proto),
                         fmt.string,
@@ -765,9 +764,8 @@ output_report_status(struct Output *out, time_t timestamp, int status,
             break;
         default:
             count = fprintf(stdout, "{\"type\":\"masscan_probe\", \"ip\":\"%s\", \"port\":\"%u\", \"protocol\":\"%s\"}",
-                        status_string(status),
-                        port,
                         name_from_ip_proto(ip_proto),
+                        port,
                         fmt.string
                         );
         }
