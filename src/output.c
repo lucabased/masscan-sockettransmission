@@ -764,9 +764,9 @@ output_report_status(struct Output *out, time_t timestamp, int status,
             break;
         default:
             count = fprintf(stdout, "{\"type\":\"masscan_probe\", \"ip\":\"%s\", \"port\":\"%u\", \"protocol\":\"%s\"}",
-                        name_from_ip_proto(ip_proto),
+                        fmt.string,
                         port,
-                        fmt.string
+                        name_from_ip_proto(ip_proto)
                         );
         }
 
